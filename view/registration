@@ -1,0 +1,12 @@
+Use your acme template to build a registration view and store it into the "view" folder.
+ The view must contain a form that collects the following information from a site visitor:
+First name
+Last name
+Email address
+A password
+Ensure that the registrant understands that all fields are required, but you do not need to enforce the require right now, this is just a notification.
+
+Make sure you use HTML5 and usability standards to build the view and form 
+(e.g. use label elements with the input elements and use HTML5 input types for the input elements within the form).
+
+Use CSS to style the form for professional appearance and usability.

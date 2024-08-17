@@ -1,0 +1,72 @@
+1)
+Insert the following new client to the clients table (Note: The clientId and clientLevel fields should handle their own values and do not need to be part of this query.):
+Tony, Stark, tony@starkent.com, Iam1ronM@n, "I am the real Ironman"
+
+
+INSERT INTO clients
+    (clientFirstname, clientLastname,clientEmail,clientPassword,comments)
+    value
+    ('Tony','Stark', 'tony@starkent.com', 'Iam1ronM@n', 'I am the real Ironman')
+
+
+
+
+2)
+
+Modify the Tony Stark record to change the clientLevel to 3.
+
+UPDATE clients
+SET
+   clientLevel =3
+WHERE
+clientId=0
+
+
+3)
+
+Modify the "Nylon Rope" record to read "Climbing Rope" using a single query. 
+The change must change all instances of "nylon rope" to "climbing rope" in the record. 
+Also, be sure that the invName field maintains its capital letter. 
+(This is a "tricky" one because you have to work with this two word combination [e.g. nylon rope]), 
+while ignoring the word "nylon" if it is not followed by the word "rope". 
+Explore the SQL Replace function. 
+It needs to be part of an Update query as shown in the code examples of the SQL Reading.
+
+UPDATE inventory
+Set 
+invName=REPLACE(invName,'Nylon Rope', 'Climbing rope'),
+invDescription=REPLACE(invDescription,'nylon rope', 'climbing rope')
+WHERE
+invId=15
+
+
+4)
+
+Use an inner join to SELECT the invName field from the inventory 
+table and the categoryName field from the categories 
+table for inventory items that belong to the "Misc" category. 
+(These resources may help you: https://www.w3schools.com/sql/sql_join.asp 
+and https://www.youtube.com/watch?v=0FEjw2HnfDs) 
+
+Seven records should be returned as a result of the query.
+
+SELECT invName, categoryName
+FROM inventory
+INNER JOIN categories ON
+inventory.categoryId = categories.categoryId
+WHERE
+inventory.categoryId=3
+
+
+
+5)
+
+Delete the Koenigsegg CCX car from the database. 
+[Note: You can restore the Inventory table by importing the SQL file that was used to create it again].
+
+DELETE
+FROM 
+inventory
+Where
+invId=7
+
